@@ -69,12 +69,12 @@ const handleClose = () => {
     setError('');
 
     try {
-      const response = await fetch(`http://localhost:5000/api/vehicles/search/${searchQuery.trim()}`);
+      const response = await fetch(`https://vehicle-parking-system.vercel.app/api/vehicles/search/${searchQuery.trim()}`);
       const data = await response.json();
       
       if (data.success && data.vehicle) {
         // Check if vehicle is already checked out
-        const checkoutResponse = await fetch(`http://localhost:5000/api/checkouts/status/${data.vehicle.id}`);
+        const checkoutResponse = await fetch(`https://vehicle-parking-system.vercel.app/api/checkouts/status/${data.vehicle.id}`);
         const checkoutStatus = await checkoutResponse.json();
         
         if (checkoutStatus.isCheckedOut) {
@@ -88,7 +88,7 @@ const handleClose = () => {
         const diffTime = Math.abs(currentDate - inDate);
         const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) || 1;
         
-        const priceResponse = await fetch(`http://localhost:5000/api/settings/prices`, {
+        const priceResponse = await fetch(`https://vehicle-parking-system.vercel.app/api/settings/prices`, {
           method: 'GET',
           headers: { 'Content-Type': 'application/json' }
         });
@@ -120,7 +120,7 @@ const handleClose = () => {
   const handleViewDetails = async (vehicle) => {
     try {
       const vehicleId = vehicle.vehicle_id || vehicle.id;
-      const response = await fetch(`http://localhost:5000/api/vehicles/${vehicleId}`);
+      const response = await fetch(`https://vehicle-parking-system.vercel.app/api/vehicles/${vehicleId}`);
       const fullVehicleData = await response.json();
   
       // Parse vehicle_details if it's a string
@@ -386,7 +386,7 @@ const handleClose = () => {
               {vehicle.images.map((img, index) => (
                 <ImageListItem key={index}>
                   <img
-                    src={`http://localhost:5000${img}`}
+                    src={`https://vehicle-parking-system.vercel.app${img}`}
                     alt={`Vehicle ${index + 1}`}
                     loading="lazy"
                     style={{ 
@@ -435,7 +435,7 @@ const handleClose = () => {
   // I'll continue with the remaining code in the next part due to length limitations
   const fetchCheckedOutVehicles = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/vehicles/checked-out');
+      const response = await fetch('https://vehicle-parking-system.vercel.app/api/vehicles/checked-out');
       const data = await response.json();
       setCheckedOutVehicles(data);
       setShowCheckedOutVehicles(true);
@@ -466,7 +466,7 @@ const handleClose = () => {
         total_amount: billingDetails.totalAmount
       };
 
-      const response = await fetch('http://localhost:5000/api/checkouts', {
+      const response = await fetch('https://vehicle-parking-system.vercel.app/api/checkouts', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(checkoutData)

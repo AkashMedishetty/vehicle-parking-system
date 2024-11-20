@@ -560,7 +560,7 @@ export default VehicleEntryForm;
 
 const handleSubmit = async () => {
   try {
-    const response = await fetch('http://localhost:5000/api/vehicles', {
+    const response = await fetch('https://vehicle-parking-system.vercel.app/api/vehicles', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -578,7 +578,7 @@ const handleSubmit = async () => {
         }
       });
 
-      const imageResponse = await fetch(`http://localhost:5000/api/vehicles/${data.vehicleId}/images`, {
+      const imageResponse = await fetch(`https://vehicle-parking-system.vercel.app/api/vehicles/${data.vehicleId}/images`, {
         method: 'POST',
         body: imageFormData
       });

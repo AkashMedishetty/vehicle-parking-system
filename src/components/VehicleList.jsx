@@ -101,7 +101,7 @@ const VehicleList = () => {
   const fetchVehicles = async () => {
     try {
       setLoading(true);
-      const response = await fetch('http://localhost:5000/api/vehicles');
+      const response = await fetch('https://vehicle-parking-system.vercel.app/api/vehicles');
       if (!response.ok) throw new Error('Failed to fetch vehicles');
       const data = await response.json();
       setVehicles(data);
@@ -116,7 +116,7 @@ const VehicleList = () => {
 
   const fetchLocations = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/settings/locations');
+      const response = await fetch('https://vehicle-parking-system.vercel.app/api/settings/locations');
       const data = await response.json();
       setLocations(data.data);
     } catch (err) {
@@ -294,7 +294,7 @@ const VehicleList = () => {
   // Handlers
   const handlePreview = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/vehicles/${id}`);
+      const response = await fetch(`https://vehicle-parking-system.vercel.app/api/vehicles/${id}`);
       const data = await response.json();
       setPreviewVehicle(data);
       setOpenPreviewDialog(true);
@@ -311,7 +311,7 @@ const VehicleList = () => {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this vehicle?')) {
       try {
-        const response = await fetch(`http://localhost:5000/api/vehicles/${id}`, {
+        const response = await fetch(`https://vehicle-parking-system.vercel.app/api/vehicles/${id}`, {
           method: 'DELETE'
         });
         if (response.ok) {
@@ -482,7 +482,7 @@ const PreviewDialog = ({ vehicle, open, onClose }) => {
                     {vehicle.images.map((img, index) => (
                       <ImageListItem key={index}>
                         <img
-                          src={`http://localhost:5000${img}`}
+                          src={`https://vehicle-parking-system.vercel.app${img}`}
                           alt={`Vehicle image ${index + 1}`}
                           loading="lazy"
                           style={{ height: 200, objectFit: 'cover' }}
@@ -882,7 +882,7 @@ const EditDialog = ({ vehicle, open, onClose }) => {
     });
 
     try {
-      const response = await fetch(`http://localhost:5000/api/vehicles/${vehicle.id}/images`, {
+      const response = await fetch(`https://vehicle-parking-system.vercel.app/api/vehicles/${vehicle.id}/images`, {
         method: 'POST',
         body: formData
       });
@@ -936,7 +936,7 @@ const EditDialog = ({ vehicle, open, onClose }) => {
     };
   
     try {
-      const response = await fetch(`http://localhost:5000/api/vehicles/${vehicle.id}`, {
+      const response = await fetch(`https://vehicle-parking-system.vercel.app/api/vehicles/${vehicle.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(updateData)
@@ -1159,7 +1159,7 @@ const EditDialog = ({ vehicle, open, onClose }) => {
                   {editedData.images.map((img, index) => (
                     <ImageListItem key={index}>
                       <img
-                        src={`http://localhost:5000${img}`}
+                        src={`https://vehicle-parking-system.vercel.app${img}`}
                         alt={`Vehicle image ${index + 1}`}
                         loading="lazy"
                         style={{ height: 200, objectFit: 'cover' }}

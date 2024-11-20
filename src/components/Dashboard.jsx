@@ -37,10 +37,10 @@ const Dashboard = () => {
 
   const loadLocations = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/settings/locations');
+      const response = await fetch('https://vehicle-parking-system.vercel.app/api/settings/locations');
       const data = await response.json();
       const locationsWithCounts = await Promise.all(data.data.map(async location => {
-        const vehiclesResponse = await fetch('http://localhost:5000/api/vehicles');
+        const vehiclesResponse = await fetch('https://vehicle-parking-system.vercel.app/api/vehicles');
         const vehicles = await vehiclesResponse.json();
         const currentVehicles = vehicles.filter(v => v.in_place === location.name).length;
         return { ...location, current_vehicles: currentVehicles };
@@ -55,7 +55,7 @@ const Dashboard = () => {
 
   const loadVehicles = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/vehicles');
+      const response = await fetch('https://vehicle-parking-system.vercel.app/api/vehicles');
       const data = await response.json();
       setVehicles(data.filter(v => v.in_place === selectedLocation.name));
     } catch (error) {
@@ -65,7 +65,7 @@ const Dashboard = () => {
 
   const loadCheckedOutVehicles = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/vehicles/checked-out');
+      const response = await fetch('https://vehicle-parking-system.vercel.app/api/vehicles/checked-out');
       const data = await response.json();
       const locationCheckouts = data
         .filter(checkout => JSON.parse(checkout.vehicle_details).in_place === selectedLocation.name)

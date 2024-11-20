@@ -60,7 +60,7 @@ useEffect(() => {
 // Add this function to fetch users
 const fetchUsers = async () => {
   try {
-    const response = await fetch('http://localhost:5000/api/settings/users');
+    const response = await fetch('https://vehicle-parking-system.vercel.app/api/settings/users');
     const data = await response.json();
     setUsers(data.data);
   } catch (error) {
@@ -71,7 +71,7 @@ const fetchUsers = async () => {
 
   const fetchLocations = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/settings/locations');
+      const response = await fetch('https://vehicle-parking-system.vercel.app/api/settings/locations');
       const data = await response.json();
       setLocations(data.data);
     } catch (error) {
@@ -81,7 +81,7 @@ const fetchUsers = async () => {
 
   const fetchVehicleTypes = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/settings/vehicle-types');
+      const response = await fetch('https://vehicle-parking-system.vercel.app/api/settings/vehicle-types');
       const data = await response.json();
       setVehicleTypes(data.data);
     } catch (error) {
@@ -91,7 +91,7 @@ const fetchUsers = async () => {
 
   const fetchPrices = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/settings/prices');
+      const response = await fetch('https://vehicle-parking-system.vercel.app/api/settings/prices');
       const data = await response.json();
       
       // Transform the array of prices into the required object format
@@ -111,7 +111,7 @@ const fetchUsers = async () => {
 
   const handleAddUser = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/settings/users', {
+      const response = await fetch('https://vehicle-parking-system.vercel.app/api/settings/users', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newUser)
@@ -131,7 +131,7 @@ const fetchUsers = async () => {
 
   const handleAddLocation = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/settings/locations', {
+      const response = await fetch('https://vehicle-parking-system.vercel.app/api/settings/locations', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newLocation)
@@ -148,7 +148,7 @@ const fetchUsers = async () => {
 
   const handleAddVehicleType = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/settings/vehicle-types', {
+      const response = await fetch('https://vehicle-parking-system.vercel.app/api/settings/vehicle-types', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newVehicleType)
@@ -166,7 +166,7 @@ const fetchUsers = async () => {
   const handleDeleteLocation = async (id) => {
     if (window.confirm('Are you sure you want to delete this location?')) {
       try {
-        const response = await fetch(`http://localhost:5000/api/settings/locations/${id}`, {
+        const response = await fetch(`https://vehicle-parking-system.vercel.app/api/settings/locations/${id}`, {
           method: 'DELETE'
         });
         if (response.ok) {
@@ -181,7 +181,7 @@ const fetchUsers = async () => {
   const handleDeleteVehicleType = async (id) => {
     if (window.confirm('Are you sure you want to delete this vehicle type?')) {
       try {
-        const response = await fetch(`http://localhost:5000/api/settings/vehicle-types/${id}`, {
+        const response = await fetch(`https://vehicle-parking-system.vercel.app/api/settings/vehicle-types/${id}`, {
           method: 'DELETE'
         });
         if (response.ok) {
@@ -215,7 +215,7 @@ const fetchUsers = async () => {
         });
       });
   
-      const response = await fetch('http://localhost:5000/api/settings/prices', {
+      const response = await fetch('https://vehicle-parking-system.vercel.app/api/settings/prices', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ prices: priceUpdates })
