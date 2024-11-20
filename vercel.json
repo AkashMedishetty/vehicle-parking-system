@@ -2,14 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "/workspaces/vehicle-parking-system/src/components/vehicle-management-server/server.js",
+      "src": "vehicle-parking-system/src/components/vehicle-management-server/server.js",
       "use": "@vercel/static-build"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/workspaces/vehicle-parking-system/src/components/vehicle-management-server/server.js"
+      "dest": "vehicle-parking-system/src/components/vehicle-management-server/server.js"
     }
   ]
 }
