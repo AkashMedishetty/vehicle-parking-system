@@ -396,7 +396,7 @@ db.getConnection()
     });
 
 // Start server
-app.listen(PORT, () => {
+app.listen(port, () => {
     console.log(`Server running on port ${PORT}`);
     console.log(`API endpoint: http://localhost:${PORT}/api/vehicles`);
 });
