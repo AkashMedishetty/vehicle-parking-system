@@ -16,8 +16,14 @@
       "dest": "src/components/vehicle-management-server/server.js"
     },
     {
+      "src": "/(.*)\\.js$",
+      "headers": {
+        "Content-Type": "application/javascript"
+      }
+    },
+    {
       "src": "/(.*)",
-      "dest": "/"
+      "dest": "/index.html"
     }
   ]
 }
