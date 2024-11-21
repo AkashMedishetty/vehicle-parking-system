@@ -52,6 +52,9 @@ const upload = multer({
     limits: { fileSize: 50 * 1024 * 1024 }
 });
 
+// Export for Vercel
+module.exports = app;
+
 app.use('/uploads', express.static('uploads'));
 
 // Main GET endpoint for vehicles
