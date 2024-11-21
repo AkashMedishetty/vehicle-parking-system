@@ -10,10 +10,13 @@
       "use": "@vercel/static-build"
     }
   ],
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "src/components/vehicle-management-server/server.js"
+    }
+  ],
   "headers": [
-    
-
-
     {
       "source": "/api/(.*)",
       "headers": [
@@ -23,23 +26,5 @@
         { "key": "Access-Control-Allow-Credentials", "value": "true" }
       ]
     }
-  ],
-  
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "src/components/vehicle-management-server/server.js"
-    },
-    {
-      "src": "/(.*)\\.js$",
-      "headers": {
-        "Content-Type": "application/javascript"
-      }
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
   ]
-  
 }
