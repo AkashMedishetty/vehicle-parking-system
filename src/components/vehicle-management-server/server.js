@@ -20,6 +20,7 @@ const port = process.env.PORT || 3000;
 
 app.listen(port, '0.0.0.0', () => {
     console.log(`Server running on port ${port}`);
+     console.log(`API endpoint: https://${process.env.RENDER_EXTERNAL_URL || 'localhost:' + port}/api/vehicles`);
   });
 
 // Middleware setup
