@@ -22,7 +22,11 @@ app.listen(port, '0.0.0.0', () => {
     console.log(`Server running on port ${port}`);
      console.log(`API endpoint: https://${process.env.RENDER_EXTERNAL_URL || 'localhost:' + port}/api/vehicles`);
   });
-
+app.use((req, res, next) => {
+    res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    next();
+});
 // Middleware setup
 app.use(express.json({ limit: '100mb' }));
 app.use(express.urlencoded({ limit: '100mb', extended: true }));
