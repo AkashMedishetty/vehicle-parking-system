@@ -398,7 +398,7 @@ db.getConnection()
 // Start server
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
-    console.log(`API endpoint: http://localhost:${PORT}/api/vehicles`);
+    console.log(`API endpoint: http://localhost:${port}/api/vehicles`);
 });
 app.post('/api/settings/prices', async(req, res) => {
     console.log('Request body:', req.body);
