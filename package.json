@@ -1,14 +1,19 @@
 {
   "name": "vehicle-parking-system",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "version": "1.0.0",
+  "description": "A vehicle parking management system",
+  "main": "src/server.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "node src/server.js"
   },
+  "keywords": ["vehicle", "parking", "management", "system"],
+  "author": "Akash Medishetty",
+  "license": "MIT",
+  "type": "module",
   "dependencies": {
     "@date-io/date-fns": "^1.3.13",
     "@emotion/react": "^11.13.3",
@@ -16,7 +21,7 @@
     "@mui/icons-material": "^6.1.6",
     "@mui/material": "^6.1.6",
     "@mui/x-date-pickers": "^7.22.1",
-    "axios": "^1.7.7",
+    "axios": "^1.8.3",
     "cors": "^2.8.5",
     "date-fns": "^2.30.0",
     "express": "^4.21.1",
@@ -32,17 +37,11 @@
     "@eslint/js": "^9.13.0",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
-    "@vitejs/plugin-react": "^4.3.3",
+    "@vitejs/plugin-react": "^4.3.4",
     "eslint": "^9.13.0",
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-react-hooks": "^5.0.0",
-    "eslint-plugin-react-refresh": "^0.4.14",
     "globals": "^15.11.0",
     "vite": "^5.4.10"
-  },
-  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
-  "main": "eslint.config.js",
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  }
 }
