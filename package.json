@@ -2,7 +2,7 @@
   "name": "vehicle-parking-system",
   "version": "1.0.0",
   "description": "A vehicle parking management system",
-  "main": "src/server.js",
+  "main": "server.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
